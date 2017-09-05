@@ -1,0 +1,41 @@
+<p>
+	<h1 id="he"><%= @content.name %></h1>
+</p>
+<hr/>
+	<div class="row">
+		<div class="col-md-4 pull-right center">
+			<%= image_tag(@content.user.profilepic.url,size: "300x200", class:"upimg") if @content.user.profilepic? %>
+				<p>
+				<h3><%= link_to "View The User", user_path(@content.user) , class: "btn btn-warning btn-small" %></h3>
+				<h5>Brought to you by: <%= @content.user.username %></h5>
+				</p>
+			</div>
+
+		<div class="col-md-8">
+		<% if logged_in? and @content.user == current_user %>
+			<%= link_to "Edit this content", edit_content_path(@content), class: "btn btn-success pull-right" %>
+			<% end %>
+			<h3> <%= @content.summary %></h3>
+				<div class="show_content">
+					<%= image_tag(@content.picture.url, class: "upimg") if @content.picture? %>
+				</div>
+			<div class="well">
+				<p>
+				<strong>Stepes:</strong>
+				</p>
+				<%= simple_format(@content.description) %>
+					
+
+			</div>
+			<div class="pull-right glyph">
+						<%= link_to like_content_path(@content, like: true), method: :post do %>
+							<i class="glyphicon glyphicon-heart"></i> &nbsp <%= @content.likes_total %>
+						<% end %> &nbsp&nbsp&nbsp&nbsp
+						<%= link_to like_content_path(@content, like: false), method: :post do %>
+							<i class="glyphicon glyphicon-thumbs-down"></i>&nbsp <%= @content.dislikes_total %>
+						<% end %>
+			</div>
+		</div>
+	</div>
+	<hr/>
+<h3><%= link_to "Return to Content Listings",contents_path, class: "btn btn-warning btn-small" %></h3>

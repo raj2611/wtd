@@ -1,0 +1,44 @@
+<h1 id="he">All Contents</h1>
+<hr/>
+<ul class="nav nav-tabs">
+<li class="active">
+ <%= link_to "Contents", contents_path %>
+ </li>
+ <li>
+  <%= link_to "Users", users_path %>
+</li>
+</ul>
+
+
+<%= will_paginate %>
+<% @contents.each do |content| %>
+	 <div class="row">
+		<div class="col-md-2">
+				
+		<%= image_tag(content.user.profilepic.url,size: "200x100", class:"upimg") if content.user.profilepic? %>
+			<h5>Name: <%= content.user.username %></h5>
+			<h3><%= link_to "View The User", user_path(content.user) , class: "btn btn-primary btn-small center" %></h3>
+	</div>
+		<div class="col-lg-6 well">
+			<h4><%= link_to content.name, content_path(content) %></h4>
+			<p><%= content.summary %></p>
+			<p>
+			<span class='quite'><small>Created at: <%= time_ago_in_words(content.created_at) %> ago,</small></span>
+			<span class='quite'><small>Updated at: <%= time_ago_in_words(content.updated_at) %> ago</small></span>
+			</p>
+			<div class="pull-right glyphi">
+						<%= link_to like_content_path(content, like: true), method: :post do %>
+							<i class="glyphicon glyphicon-heart"></i> &nbsp <%= content.likes_total %>
+						<% end %> &nbsp&nbsp&nbsp&nbsp
+						<%= link_to like_content_path(content, like: false), method: :post do %>
+							<i class="glyphicon glyphicon-thumbs-down"></i>&nbsp <%= content.dislikes_total %>
+						<% end %>
+			</div>
+	</div>
+		<div class="col-md-4">
+		<%= image_tag(content.picture.url,size: "250x150", class:"upimg") if content.picture? %>
+	    </div>
+	    </div>
+	 <hr/>
+<% end %>
+<%= will_paginate %>

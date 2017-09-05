@@ -1,0 +1,136 @@
+$navbar-default-bg: #1F618D ;
+$light-orange: #1F618D;
+$navbar-default-color: $light-orange;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#logo {
+	margin: 10px 10px 10px 10px;
+	float: left;
+	font-size: 3em;
+	color: #D0D3D4;
+	letter-spacing: -1px;
+	padding-top:10px;
+	font-weight: bold;
+	border-radius: 1.5;
+	background-color: #17202A;
+	font-style: "Courier New", Courier, monospace;
+    border:none;
+
+}
+#item {
+	margin: 30px 8px 5px 5px;
+	float: left;
+	font-size: 1.6em;
+	color: #D0D3D4;
+	letter-spacing: -1px;
+	padding-top:10px;
+	border-radius: 1.5;
+	background-color: #17202A;
+	font-style: "Comic Sans MS", cursive, sans-serif;
+	border:none;
+
+}
+#logo:hover {
+	color:white;
+	text-decoration: none;
+}
+#item:hover {
+	color:white;
+	text-decoration: none;
+}
+body {
+	padding-top: 90px;
+}
+h1,h2,h3{
+	font-style: "Arial Black", Gadget, sans-serif;
+	line-height: 1em;
+}
+#btn{
+	margin:7px 10px 0px 0px;
+	float: left;
+}
+#side1{
+	background:#CACFD2;
+	padding: 10px 10px 10px 10px;
+
+}
+#side2{
+	background:#CACFD2;
+	padding: 10px 10px 10px 10px;
+}
+#side3{
+	background:#CACFD2;
+	padding: 10px 10px 10px 10px;
+}
+#he{
+	text-align: center;
+}
+
+.uimg{
+	background-image: image-url("img2.jpg");
+    width: 150px;
+    height: 100px;
+    border: 1px solid green;
+    margin: 10px;
+    border-radius: 1.5px;
+}
+#backg {
+	background-color: #148F77;
+}
+
+.well{
+	background-color: #AAB7B8 ;
+	border-radius: 10px;
+	border: none;
+}
+input, textarea,select, .uneditable-input {
+	border: 0.6px solid black;
+	border-radius: 5px;
+	width:100%;
+	margin-bottom: 16px;
+	height: 20%;
+}
+input {
+	height: auto !important;
+}
+ span.pictureup {
+margin-top: 10px;
+input{
+	border: 0;
+}
+ }
+ .show_content {
+ 	margin: 5px 5px 5px 5px;
+ 	
+
+ }
+
+.upimg {
+	border-radius: 2px;
+}
+.glyph {
+    font-size: 40px;
+
+    
+}
+a:hover {
+	text-decoration: none;
+
+}
+.glyphi {
+    font-size: 25px;
+    }
+
+.profileup {
+}
+.login {
+	margin-top: 100px;
+}
+.centerl{
+text-align: center;
+
+}
+

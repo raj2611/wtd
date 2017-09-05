@@ -1,0 +1,53 @@
+<div class="row">
+		<div class="col-md-4 col-md-offset-4 center">
+
+			<p>
+			<h1>Name: <%= @user.username %></h1>
+			</p>
+		</div>
+</div>
+
+<hr/>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 center">
+		<%= image_tag(@user.profilepic.url,size: "300x200", class:"upimg") if @user.profilepic? %>
+		<hr/>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4 col-lg-offset-4 center">
+	<h3><em>Contents:</em></h3>
+	<%= will_paginate @contents %>
+	</div>
+</div>
+
+<% @contents.each do |content| %>
+
+<div class="row">
+	<div class="col-lg-6 well col-lg-offset-3">
+				<h4><%= link_to content.name, content_path(content) %></h4>
+				<p><%= content.summary %></p>
+				<p>
+					<span class='quite'><small>Created at: <%= time_ago_in_words(content.created_at) %> ago,</small></span>
+					<span class='quite'><small>Updated at: <%= time_ago_in_words(content.updated_at) %> ago</small></span>
+				</p>
+
+				<div class="pull-right glyphi">
+					<%= link_to like_content_path(content, like: true), method: :post do %>
+					<i class="glyphicon glyphicon-heart"></i> &nbsp <%= content.likes_total %>
+					<% end %> &nbsp&nbsp&nbsp&nbsp
+
+					<%= link_to like_content_path(content, like: false), method: :post do %>
+					<i class="glyphicon glyphicon-thumbs-down"></i>&nbsp <%= content.dislikes_total %>
+					<% end %>
+				</div>
+
+				<div class="pull-left">
+				<%= image_tag(content.picture.url,size: "150x100", class:"upimg") if content.picture? %>
+				</div>
+	
+	</div>
+</div>
+<hr/>
+<% end %>

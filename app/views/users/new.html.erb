@@ -1,0 +1,48 @@
+<div id="backg">
+
+	<p>
+	<h1 id="he"> Register User</h1>
+
+	<hr/>
+	</p>
+
+	<% if @user.errors.any? %>
+		<div class="row">
+			<div class="alert alert-danger col-md-4 col-md-offset-2">
+				<h5>plz correct the following errors:</h5>
+				<ul>
+					<% @user.errors.full_messages.each do |msg| %>
+					<li><%=msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="row">
+		<div class="well col-md-4 col-md-offset-2">
+		<%= form_for @user do |f| %>
+			<%= f.label :username %>
+			<%= f.text_field :username %>
+			<%= f.label :email %>
+			<%= f.email_field :email %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+			<hr/>
+			<%= f.submit 'Register Your Account' , class: "btn btn-success" %>
+			
+		</div>
+		<div class="col-md-4">
+		<div class="pbox">
+
+		<span class="profileup">
+		                <br><br><br><br>
+		                <h2>Choose your Profile Pic</h2>
+					<%= f.file_field :profilepic, class: "btn btn-primary",accept: 'image/jpeg,image/gif,image/png' %>
+		</span>
+		</div>
+		</div>
+		<% end %>
+
+	</div>
+</div>

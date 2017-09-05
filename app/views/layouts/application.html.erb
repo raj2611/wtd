@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twd</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body>
+    <header class="navbar navbar-fixed-top navbar-default ">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li> <div class="nav_item">
+                        <%= link_to "TheWomensDiary", root_path, class: "btn btn-lg btn-success",id: "logo" %>
+                      </div>
+                </li>
+
+                <li> <div class="nav_item">
+                        <%= link_to "link1", "", class: "btn btn-md btn-warning",id: "item" %>
+                     </div>
+                </li>
+
+                <li> <div class="nav_item">
+                        <%= link_to "link2", "", class: "btn btn-md btn-warning",id: "item" %>
+                     </div>
+                </li>
+
+                                  <% if logged_in? %>
+
+                <li> <div class="nav_item"> 
+                        <%= link_to "Create A Post", new_content_path, class: "btn btn-md btn-warning",id: "item" %>
+                     </div>
+                </li>
+            
+                <ul class="nav_item pull-left">
+                        <li class="dropdown">
+                           <%= link_to '#', class: "btn btn-default btn-danger dropdown-toggle","data-toggle" => "dropdown" do %>
+                                <%= current_user.username %> <b class="caret"></b>
+                           <% end %>
+
+                            <ul class="dropdown-menu">
+                               <li><%= link_to "View Profile", user_path(current_user) %></li>
+                               <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+                               <li class="divider"></li>
+                               <li><%= link_to "Logout", logout_path %></li>
+                            </ul>
+                        </li>
+                </ul>
+
+                                       <% else %>
+
+                <li> <div class="nav_item"> 
+                        <%= link_to "Log in", login_path, class: "btn btn-md btn-warning",id: "item" %>
+                     </div>
+                </li>
+
+                                        <% end %>
+
+
+             </ul> 
+
+        </div>
+    </header>
+
+<div class="container-fluid">
+<%= render 'layouts/messages' %>
+<%= yield %>
+
+</div>
+</body>
+</html>
